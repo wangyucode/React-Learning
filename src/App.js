@@ -60,7 +60,7 @@ class App extends Component {
                                                          className="textarea-text form-control form-group"/> : null}
 
                     {this.state.isShowResult ? <button onClick={this.handleSave}
-                                                       className="btn-save btn btn-primary form-control  form-group">保存</button> : null}
+                                                       className="btn-save btn btn-success form-control  form-group">保存</button> : null}
                 </div>
             </div>
         );
