@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -41,42 +40,44 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <div className="Clipboard">
-                    <input placeholder="查询码" type="number"
+            <div>
+                <Header/>
+                <div className="Clipboard container">
+                    <input placeholder="查询码"
+                           type="number"
+                           className="input-query-number form-control form-group"
                            value={this.state.queryNumber > 0 ? this.state.queryNumber : ''}
                            disabled={this.state.isShowResult}
                            onChange={this.handleNumberChange}/>
-                    <br/>
-                    {this.state.isShowResult ? null :
-                        <div>
-                            <button onClick={this.handleQuery}>查询</button>
-                            <br/>
-                        </div>
-                    }
+                    {this.state.isShowResult ? null : <button onClick={this.handleQuery}
+                                                              className="btn-query btn btn-primary form-control form-group">查询</button>}
 
                     {this.state.isShowResult ? null :
-                        <div>
-                            <button onClick={this.handleNew}>新建</button>
-                            <br/>
-                        </div>
-                    }
-                    {this.state.isShowResult ?
-                        <div>
-                            <textarea onChange={this.handleTextChange} value={this.state.text}/>
-                            <br/>
-                        </div>
-                        : null
-                    }
-                    {this.state.isShowResult ? <button onClick={this.handleSave}>保存</button> : null}
+                        <button onClick={this.handleNew}
+                                className="btn-new btn btn-primary form-control form-group">新建</button>}
+
+                    {this.state.isShowResult ? <textarea onChange={this.handleTextChange} value={this.state.text}
+                                                         className="textarea-text form-control form-group"/> : null}
+
+                    {this.state.isShowResult ? <button onClick={this.handleSave}
+                                                       className="btn-save btn btn-primary form-control  form-group">保存</button> : null}
                 </div>
             </div>
         );
     }
+
+}
+
+function Header() {
+    return (<nav className="navbar navbar-dark navbar-expand-lg" style={{background: "#c5b100"}}>
+            <div className="container" style={{color: "white"}}>
+                <div className="brand">
+                    <img src="https://wycode.cn/img/logo_48.png" width="32" height="32" alt="wycode.cn"/>  剪切板
+                </div>
+                <a className="margin-auto" href="https://wycode.cn">wycode.cn</a>
+            </div>
+        </nav>
+    );
 }
 
 export default App;
