@@ -52,7 +52,7 @@ class App extends Component {
     }
 
     handleNew(event) {
-        axios.post('https:/wycode.cn/web/api/public/clipboard/create')
+        axios.post('https://wycode.cn/web/api/public/clipboard/create')
             .then((response) => this.setState({
                 isShowResult: true,
                 queryNumber: response.data.data.id,
