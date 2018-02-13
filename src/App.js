@@ -17,6 +17,7 @@ class App extends Component {
         this.handleQuery = this.handleQuery.bind(this);
         this.handleNew = this.handleNew.bind(this);
         this.handleSave = this.handleSave.bind(this);
+        this.handleBack = this.handleBack.bind(this);
     }
 
     handleNumberChange(event) {
@@ -25,6 +26,10 @@ class App extends Component {
 
     handleTextChange(event) {
         this.setState({text: event.target.value});
+    }
+
+    handleBack(event){
+        this.setState({isShowResult: false});
     }
 
     handleQuery(event) {
@@ -97,6 +102,8 @@ class App extends Component {
 
                     {this.state.isShowResult ? <button onClick={this.handleSave}
                                                        className="btn-save btn btn-success form-control  form-group">保存</button> : null}
+                    {this.state.isShowResult ? <button onClick={this.handleBack}
+                                                       className="btn-save btn btn-primary form-control  form-group">返回</button> : null}
                 </div>
             </div>
         );
@@ -108,7 +115,7 @@ function Header() {
     return (<nav className="navbar navbar-dark navbar-expand-lg" style={{background: "#c5b100"}}>
             <div className="container" style={{color: "white"}}>
                 <div className="brand">
-                    <img src="https://wycode.cn/img/logo_48.png" width="32" height="32" alt="wycode.cn"/> 剪切板
+                    <img src="https://wycode.cn/img/logo_48.png" width="32" height="32" alt="wycode.cn"/> 跨平台剪切板
                 </div>
                 <a className="margin-auto" href="https://wycode.cn">wycode.cn</a>
             </div>
